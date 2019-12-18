@@ -5,7 +5,7 @@ import Game from './game/game';
 
 const readAndParseLogFile = () => {
   const allGames = [];
-  const gamesCount = 0;
+  let gamesCount = 0;
   let currentGame = null;
   let logfile;
   try {
@@ -23,8 +23,8 @@ const readAndParseLogFile = () => {
       currentGame = new Game(gamesCount);
       let resultPlayerAnalyze = playerAnalyze(line);
       let resultKillAnalyze = killsAnalyze(line);
-      if (resultPV) {
-        currentGame.addPlayer(resultPV);
+      if (resultPlayerAnalyze) {
+        currentGame.addPlayer(resultPlayerAnalyze);
       }
       // TODO - O que fazer com resultKillAnalyze?
     }
@@ -54,5 +54,4 @@ const killsAnalyze = (line) => {
   }
 };
 
-const ln = readAndParseLogFile();
-console.log(ln[1]);
+readAndParseLogFile();
