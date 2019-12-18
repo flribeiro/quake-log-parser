@@ -1,29 +1,32 @@
+'use strict';
+
 import controller from './controller';
-import Joi from '@hapi/joi';
+// import Joi from '@hapi/joi';
+const Joi = require('@hapi/joi');
 
 const Routes = [
   {
     method: 'GET',
     path: '/games',
     options: {
-      tags: ['api'],
-      handler: controller.getAllGames
+      handler: controller.getAllGames,
+      description: 'Get all games',
+      notes: 'Returns all games found in the log file',
+      tags: ['api']
     }
   }, {
     method: 'GET',
     path: '/games/{id}',
     options: {
+      handler: controller.getGame,
+      description: 'Get game',
+      notes: 'Get the unique game specified by the ID on path param',
       tags: ['api'],
-  
-      handler: controller.getGame
-    }
-  }, {
-    method: ['POST', 'GET'],
-    path: '/log',
-    options: {
-      tags: ['api'],
-  
-      handler: controller.postLog
+      validate: {
+        params: Joi.object({
+          id: Joi.number().description('ID of the game to get').required()
+        })
+      }
     }
   }
 ]

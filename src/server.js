@@ -1,3 +1,5 @@
+'use strict';
+
 import Hapi from 'hapi';
 import Inert from '@hapi/inert';
 import Vision from '@hapi/vision';
@@ -13,19 +15,17 @@ const init = async () => {
       host: 'localhost'
   });
 
-  const swaggerOptions = {
-    info: {
-      title: 'Quake Log game parser and API',
-      version: Package.version
-    }
-  };
-
   await server.register([
     Inert,
     Vision,
     {
       plugin: HapiSwagger,
-      options: swaggerOptions
+      options: {
+        info: {
+          title: 'Quake Log game parser and API',
+          version: Package.version
+        }
+      }
     }
   ])
 
@@ -36,7 +36,7 @@ const init = async () => {
   } catch (err) {
     console.error(err);
   }
-
+  
   await server.route(Routes);
 };
 
