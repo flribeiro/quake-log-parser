@@ -1,9 +1,11 @@
 'use strict';
 
 import controller from './controller';
-// import Joi from '@hapi/joi';
-const Joi = require('@hapi/joi');
+import Joi from '@hapi/joi';
 
+/**
+ * Routes for the API.
+ */
 const Routes = [
   {
     method: 'GET',

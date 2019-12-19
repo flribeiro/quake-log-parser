@@ -32,7 +32,7 @@
     "@hapi/vision": "^5.5.4",
     "blipp": "^4.0.1",
     "hapi": "^18.1.0",
-    "hapi-auth-jwt": "^4.0.0",
+    "hapi-auth-jwt2": "^8.8.1",
     "hapi-swagger": "10.3.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.2",

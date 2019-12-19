@@ -4,10 +4,12 @@ import Hapi from 'hapi';
 import Inert from '@hapi/inert';
 import Vision from '@hapi/vision';
 import HapiSwagger from 'hapi-swagger';
-import Auth from 'hapi-auth-jwt';
 import Routes from './routes';
 import Package from '../package';
 
+/**
+ * Function that starts the server.
+ */
 const init = async () => {
 
   const server = Hapi.server({
@@ -28,7 +30,6 @@ const init = async () => {
       }
     }
   ])
-
   
   try {
     await server.start();
