@@ -8,8 +8,8 @@ import business from './business';
  * @returns {Object} Object HTTP response containing the games array object
  */
 exports.getAllGames = (request, h) => {
-  const result = business.getAllGames();
-  return h.response(result);
+  const registers = business.getAllGames();
+  return h.response(registers);
 };
 
 /**

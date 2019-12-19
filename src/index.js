@@ -1,3 +1,4 @@
 'use strict';
 
-require('./server');
+const { start } = require('./server');
+start();

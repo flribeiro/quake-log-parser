@@ -4,10 +4,8 @@
   "description": "An API to parse Quake logs and query for games rankings",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
-    "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
-    "build": "rimraf dist && babel src -s -D -d dist --presets env",
-    "start": "node dist"
+    "test": "node_modules/.bin/lab -T ./node_modules/lab-babel -l -v tests/routes/*.spec.js",
+    "start": "nodemon -w src --exec \"babel-node src --presets env\""
   },
   "repository": {
     "type": "git",
@@ -40,7 +38,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
+    "@hapi/code": "^7.0.0",
+    "@hapi/lab": "^21.0.0",
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "lab-babel": "^1.1.1"
   }
 }
